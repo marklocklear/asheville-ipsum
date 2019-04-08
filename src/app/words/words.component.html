@@ -1,0 +1,8 @@
+<h1>Aseville Ipsum</h1>
+<h2>Keep Asheville Weird</h2>
+<mat-radio-group aria-label="Select an option" (change)="getNumberOfWords($event)">
+  <mat-radio-button value="5">5 Words</mat-radio-button>
+  <mat-radio-button value="10">10 Words</mat-radio-button>
+</mat-radio-group>
+
+<div>{{ randoWords }}</div>
