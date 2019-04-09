@@ -19,10 +19,11 @@ export class WordsComponent implements OnInit {
     "brewing",
     "pack square",
     "AB Tech",
-    "weird",
+    "stay weird",
     "goth",
     "green man",
-    "farm to table",
+    "grove park",
+    "farm-to-table",
     "weed",
     "pot",
     "hemp",
@@ -48,7 +49,13 @@ export class WordsComponent implements OnInit {
     "flat iron building",
     "mountains",
     "pisgah",
-    "pale ale"
+    "pale ale",
+    "West Asheville",
+    "French Broad",
+    "Subaru",
+    "bumper stickers",
+    "girl with hairy arm pits",
+    "girl with hairy legs"
   ];
   randoWords = "";
 
