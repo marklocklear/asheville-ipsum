@@ -14,7 +14,7 @@ export class WordsComponent implements OnInit {
     "pot",
     "hemp",
     "moog",
-    "at wedge",
+    "at the Wedge",
     "drinking beer",
     "brewing",
     "in pack square",
@@ -73,9 +73,10 @@ export class WordsComponent implements OnInit {
   ngOnInit() {}
 
   getNumberOfWords($event) {
-    const shuffled = this.words.sort(() => 0.5 - Math.random());
-    this.randomlyInsertPeriods(shuffled);
-    this.randoWords = shuffled.slice(0, $event.value).join(" ");
+    const shuffledWords = [...this.words]; //make a copy of the array to prevent mutation
+    shuffledWords.sort(() => 0.5 - Math.random());
+    this.randomlyInsertPeriods(shuffledWords);
+    this.randoWords = shuffledWords.slice(0, $event.value).join(" ");
     this.randoWords = this.capitalizeFirstLetter(this.randoWords);
     this.randoWords = this.addPeriod(this.randoWords);
   }
@@ -90,7 +91,7 @@ export class WordsComponent implements OnInit {
 
   randomlyInsertPeriods(words) {
     var arrayLength = this.words.length;
-    this.randomNumber = this.getRandomNumber(5, 10);
+    this.randomNumber = this.getRandomNumber(3, 10);
     for (var i = 0; i < arrayLength; i++) {
       //inserts a period based on the randomNumber from above and also
       //capitalizes the word after the period
