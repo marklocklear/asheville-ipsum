@@ -11,24 +11,27 @@ export class WordsComponent implements OnInit {
     "hops",
     "hippy",
     "hipster",
-    "weed",
     "pot",
     "hemp",
     "moog",
-    "wedge",
+    "at the Wedge",
+    "drinking beer",
     "brewing",
-    "pack square",
+    "in pack square",
     "AB Tech",
     "stay weird",
     "goth",
+    "at the Orange Peel",
     "green man",
-    "grove park",
+    "at the grove park",
+    "on patton",
+    "in Montford",
     "farm-to-table",
-    "weed",
-    "pot",
+    "smoking weed",
+    "puffing on pot",
+    "with dreads",
     "hemp",
     "moog",
-    "wedge",
     "brewing",
     "at pack square",
     "at AB Tech",
@@ -50,14 +53,17 @@ export class WordsComponent implements OnInit {
     "mountains",
     "pisgah",
     "pale ale",
-    "West Asheville",
+    "in West Asheville",
     "French Broad",
     "Subaru",
     "bumper stickers",
     "girl with hairy arm pits",
     "girl with hairy legs",
     "hipster with a bun",
-    "smelly pits"
+    "smelly pits",
+    "drum circle",
+    "eating hippy food",
+    "dude with a man bun"
   ];
   randoWords = "";
   randomNumber = 1;
@@ -67,33 +73,38 @@ export class WordsComponent implements OnInit {
   ngOnInit() {}
 
   getNumberOfWords($event) {
-    
-    const shuffled = this.words.sort(() => 0.5 - Math.random());
-    this.randoWords = shuffled.slice(0, $event.value).join(" ");
+    const shuffledWords = [...this.words]; //make a copy of the array to prevent mutation
+    shuffledWords.sort(() => 0.5 - Math.random());
+    this.randomlyInsertPeriods(shuffledWords);
+    this.randoWords = shuffledWords.slice(0, $event.value).join(" ");
     this.randoWords = this.capitalizeFirstLetter(this.randoWords);
-    this.randoWords = this.addperiod(this.randoWords);
-    // this.randomlyInsertPeriods(this.randoWords);
+    this.randoWords = this.addPeriod(this.randoWords);
   }
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  getRandomDigit() {
-    //returns random number b/t 5 and 10
-    return Math.round((this.randomNumber = Math.random() * (10 - 5) + 5));
+  getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  randomlyInsertPeriods(string) {
-    // convert string to array
-    this.arr = string.split(" ");
-    // get random number 5-10
-    this.randomNumber = Math.random() * (10 - 5) + 5;
-    // whatever random number is, count that number and insert period
-    this.arr.splice(this.randomNumber, 0, ".");
-    // convert back to string and send it on its way
-    string = this.arr.join(" ");
-    console.log(this.arr);
+  randomlyInsertPeriods(words) {
+    var arrayLength = this.words.length;
+    this.randomNumber = this.getRandomNumber(3, 10);
+    for (var i = 0; i < arrayLength; i++) {
+      //inserts a period based on the randomNumber from above and also
+      //capitalizes the word after the period
+      if ((i + 1) % this.randomNumber == 0) {
+        words.splice(i, 0, ".");
+        words.splice(i + 1, 1, this.capitalizeFirstLetter(words[i + 1]));
+      }
+    }
+    return words;
+  }
+
+  addPeriod(words) {
+    return words + ".";
   }
   addperiod(words) {    
     // add a period to end of words
