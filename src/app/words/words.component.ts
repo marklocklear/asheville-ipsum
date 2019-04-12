@@ -106,4 +106,10 @@ export class WordsComponent implements OnInit {
   addPeriod(words) {
     return words + ".";
   }
+  addperiod(words) {    
+    // add a period to end of words
+        return words = words + "."
+    // console.log("test for add words", words);
+   
+  }
 }
