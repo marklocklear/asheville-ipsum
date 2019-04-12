@@ -67,9 +67,11 @@ export class WordsComponent implements OnInit {
   ngOnInit() {}
 
   getNumberOfWords($event) {
+    
     const shuffled = this.words.sort(() => 0.5 - Math.random());
     this.randoWords = shuffled.slice(0, $event.value).join(" ");
     this.randoWords = this.capitalizeFirstLetter(this.randoWords);
+    this.randoWords = this.addperiod(this.randoWords);
     // this.randomlyInsertPeriods(this.randoWords);
   }
 
@@ -83,14 +85,20 @@ export class WordsComponent implements OnInit {
   }
 
   randomlyInsertPeriods(string) {
-    //convert string to array
+    // convert string to array
     this.arr = string.split(" ");
-    //get random number 5-10
+    // get random number 5-10
     this.randomNumber = Math.random() * (10 - 5) + 5;
-    //whatever random number is, count that number and insert period
+    // whatever random number is, count that number and insert period
     this.arr.splice(this.randomNumber, 0, ".");
-    //convert back to string and send it on its way
+    // convert back to string and send it on its way
     string = this.arr.join(" ");
     console.log(this.arr);
+  }
+  addperiod(words) {    
+    // add a period to end of words
+        return words = words + "."
+    // console.log("test for add words", words);
+   
   }
 }
