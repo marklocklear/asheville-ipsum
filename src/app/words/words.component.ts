@@ -6,6 +6,24 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./words.component.css"]
 })
 export class WordsComponent implements OnInit {
+  extraBeer = [
+    "cascade",
+    "nugget",
+    "chinook",
+    "citra",
+    "hallertauer",
+    "willamette",
+    "brettanomyces",
+    "Saccharomyces",
+    "Wyeast",
+    "Well balanced. Ferments dry, finishes soft",
+    "Slightly nutty, soft, clean and tart finish",
+    "Clean flavors accentuate hops; very versatile",
+    "A blend of ale and lager strains that creates a clean, crisp, light American lager style",
+    "A malty, complex profile that clears well",
+    "Develops estery and somewhat peppery spiceyness"
+  ];
+
   words = [
     "beer",
     "hops",
@@ -106,10 +124,9 @@ export class WordsComponent implements OnInit {
   addPeriod(words) {
     return words + ".";
   }
-  addperiod(words) {    
+  addperiod(words) {
     // add a period to end of words
-        return words = words + "."
+    return (words = words + ".");
     // console.log("test for add words", words);
-   
   }
 }
