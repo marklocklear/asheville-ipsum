@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-words",
@@ -83,18 +84,29 @@ export class WordsComponent implements OnInit {
     "eating hippy food",
     "dude with a man bun"
   ];
+
   randoWords = "";
   randomNumber = 1;
   arr: string[];
-  constructor() {}
+  registerForm: FormGroup;
 
-  ngOnInit() {}
+  constructor(private formBuilder: FormBuilder) {}
 
-  getNumberOfWords($event) {
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      numberOfWords: "50",
+      numberOfParagraphs: "1",
+      moreBeer: false
+    });
+  }
+
+  getNumberOfWords() {
     const shuffledWords = [...this.words]; //make a copy of the array to prevent mutation
     shuffledWords.sort(() => 0.5 - Math.random());
     this.randomlyInsertPeriods(shuffledWords);
-    this.randoWords = shuffledWords.slice(0, $event.value).join(" ");
+    this.randoWords = shuffledWords
+      .slice(0, this.registerForm.value.numberOfWords)
+      .join(" ");
     this.randoWords = this.capitalizeFirstLetter(this.randoWords);
     this.randoWords = this.addPeriod(this.randoWords);
   }
@@ -128,5 +140,10 @@ export class WordsComponent implements OnInit {
     // add a period to end of words
     return (words = words + ".");
     // console.log("test for add words", words);
+  }
+
+  onSubmit() {
+    console.log(this.registerForm.value);
+    this.getNumberOfWords();
   }
 }
