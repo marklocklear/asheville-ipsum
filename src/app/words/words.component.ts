@@ -100,15 +100,21 @@ export class WordsComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    this.randoWords = this.getNumberOfWords();
+  }
+
   getNumberOfWords() {
+    let words;
     const shuffledWords = [...this.words]; //make a copy of the array to prevent mutation
     shuffledWords.sort(() => 0.5 - Math.random());
     this.randomlyInsertPeriods(shuffledWords);
-    this.randoWords = shuffledWords
+    words = shuffledWords
       .slice(0, this.registerForm.value.numberOfWords)
       .join(" ");
-    this.randoWords = this.capitalizeFirstLetter(this.randoWords);
-    this.randoWords = this.addPeriod(this.randoWords);
+    words = this.capitalizeFirstLetter(words);
+    words = this.addPeriod(words);
+    return words;
   }
 
   capitalizeFirstLetter(string) {
@@ -140,10 +146,5 @@ export class WordsComponent implements OnInit {
     // add a period to end of words
     return (words = words + ".");
     // console.log("test for add words", words);
-  }
-
-  onSubmit() {
-    console.log(this.registerForm.value);
-    this.getNumberOfWords();
   }
 }
