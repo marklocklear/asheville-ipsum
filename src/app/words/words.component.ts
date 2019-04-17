@@ -89,6 +89,7 @@ export class WordsComponent implements OnInit {
   randomNumber = 1;
   arr: string[];
   registerForm: FormGroup;
+  paragraphs = [];
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -101,7 +102,12 @@ export class WordsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.randoWords = this.getNumberOfWords();
+    //update array based on the number of paragraphs user selects
+    this.paragraphs.push(+this.registerForm.value.numberOfParagraphs);
+    //loop through array and run getNumberOfWords for each element
+    for (var i = 0; i < this.paragraphs.length; i++) {
+      this.paragraphs[i] = this.getNumberOfWords();
+    }
   }
 
   getNumberOfWords() {

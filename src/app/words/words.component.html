@@ -24,4 +24,5 @@
   </div>
 </form>
 
-<div class="content">{{ randoWords }}</div>
+<!-- <div class="content">{{ randoWords }}</div> -->
+<div class="content" *ngFor="let paragraph of paragraphs">{{ paragraph }}<br><br></div>
