@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Waiting+for+the+Sunrise');
+$input-size:           100px;
+$font-size:            25px;
+
+h1{
+  text-align: center;
+  font-size: 62px;
+  margin: 0 0 0 0;
+}
+h2{
+  text-align: center;
+  margin: 0 0 0 0;
+}
+.content{
+ width: 660px;
+ margin: 20px 20px;
+ padding: 0;
+}
+.sunrise {
+  font-family: 'Waiting for the Sunrise', cursive;
+}
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+#number-field {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  // Hacky way to account for the excess height
+ // margin: -#{$input-size/4 + $font-size/2} 0;
+
+  background: none;
+  color: rgb(5, 5, 5);
+  font-size: 2em;
+  line-height: 2em;
+  font-weight: bold;
+  text-align: center;
+ // text-indent: $font-size/2;
+  border: 0;
+  outline: 0;
+  cursor: default;
+
+}
