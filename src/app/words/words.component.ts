@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 @Component({
   selector: "app-words",
   templateUrl: "./words.component.html",
-  styleUrls: ["./words.component.css"]
+  styleUrls: ["./words.component.scss"]
 })
 export class WordsComponent implements OnInit {
   extraBeer = [
@@ -103,7 +103,7 @@ export class WordsComponent implements OnInit {
 
   onSubmit() {
     //update array based on the number of paragraphs user selects
-    this.paragraphs.push(+this.registerForm.value.numberOfParagraphs);
+    this.paragraphs.length = this.registerForm.value.numberOfParagraphs;
     //loop through array and run getNumberOfWords for each element
     for (var i = 0; i < this.paragraphs.length; i++) {
       this.paragraphs[i] = this.getNumberOfWords();
