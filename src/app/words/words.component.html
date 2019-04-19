@@ -2,28 +2,25 @@
 <h1 class="sunrise">Asheville Ipsum</h1>
 <h2 class="sunrise">Asheville Infused Lorem Ipusm Generator</h2>
 </div>
-
-
+<div class="inputs">
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
+  <div class="form-group" id="short-medium-long">
     <mat-radio-group aria-label="Select an option" formControlName="numberOfWords" class="form-control" >
       <mat-radio-button value="50">Short</mat-radio-button>
       <mat-radio-button value="75">Medium</mat-radio-button>
       <mat-radio-button value="100">Long</mat-radio-button>
     </mat-radio-group>
   </div>
-  <div class="form-group">
+  <div class="form-group" id="paragraphs">
     <label>Number of Paragraphs</label>
     <input type="number" id="number-field" formControlName="numberOfParagraphs" class="form-control" />
+      <mat-checkbox formControlName="moreBeer" class="form-control">More Beer!</mat-checkbox>
 </div>
   <div class="form-group">
-      <mat-checkbox formControlName="moreBeer" class="form-control">More Beer!</mat-checkbox>
-      <!-- <input type="text" formControlName="email" class="form-control" /> -->
-  </div>
-  <div class="form-group">
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary" id="submit-button">Submit</button>
   </div>
 </form>
+</div>
 
 <!-- <div class="content">{{ randoWords }}</div> -->
 <div class="content" *ngFor="let paragraph of paragraphs">{{ paragraph }}<br><br></div>
