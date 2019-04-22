@@ -1,5 +1,8 @@
 # AshevilleIpsum
 
+For better sentence generation see https://stackoverflow.com/questions/35674309/programmatically-forming-a-sentence-from-a-list-of-nouns
+I think you also need lists of articles (a, an, the), verbs, adverbs, adjectives and prepositional phrases. The basic sentence structure is [Art adj noun verb adv pp], so for example, A green dog ran slowly down the street. Once you have lists of all those you can randomly pick one word from each list to construct a sentence.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 Layout and Design at https://www.figma.com/file/TYFVNaUPoxbtnRHcKULjthx7/Asheville-Ipsum?node-id=0%3A1
@@ -15,7 +18,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
+ng build --prod && scp -r dist/asheville-ipsum/ deployer@remotegig.io:/home/deployer/
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
