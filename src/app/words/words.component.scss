@@ -77,18 +77,34 @@ h3{
   padding: 15px 15px 15px 15px;
   margin: 15px 15px 15px 15px;
 }
+
 i {
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 3px;
+  padding: 5px;
+  position: relative;
 }
-.up {
+
+.updown {
+	display: flex;
+    flex-direction: column;
+    max-width: 10px;
+    margin-left: 10px;
+}
+
+.arrow-up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }
 
-.down {
+.arrow-down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.form-group{
+	display: flex;
+  justify-content: center;
+  align-items: center;
 }

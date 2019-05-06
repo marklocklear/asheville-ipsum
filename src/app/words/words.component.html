@@ -8,8 +8,10 @@
     <div class="form-group" id="numberOfParagraphs">
         <label>Number of Paragraphs</label>
         <input type="text" id="number-field" formControlName="numberOfParagraphs" class="form-control" />
-        <i class="arrow up"></i>
-        <i class="arrow down"></i>
+        <div class="updown">
+          <i class="arrow-up" (click)="incrementParagraphs()"></i>
+          <i class="arrow-down" (click)="decrementParagraphs()"></i>
+        </div>
     </div>
   <div class="form-group" id="short-medium-long">
     <mat-radio-group aria-label="Select an option" formControlName="numberOfWords" class="form-control" >

@@ -96,7 +96,8 @@ export class WordsComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       numberOfWords: "50",
       numberOfParagraphs: "1",
-      moreBeer: false
+      moreBeer: false,
+      moreFunk: false
     });
   }
 
@@ -142,6 +143,18 @@ export class WordsComponent implements OnInit {
       }
     }
     return words;
+  }
+
+  incrementParagraphs() {
+    let paragraphs = Number(this.registerForm.value.numberOfParagraphs);
+    paragraphs += 1;
+    this.registerForm.get("numberOfParagraphs").setValue(paragraphs);
+  }
+
+  decrementParagraphs() {
+    let paragraphs = Number(this.registerForm.value.numberOfParagraphs);
+    paragraphs -= 1;
+    this.registerForm.get("numberOfParagraphs").setValue(paragraphs);
   }
 
   addPeriod(words) {
