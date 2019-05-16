@@ -2,16 +2,7 @@
 $input-size:           100px;
 $font-size:            25px;
 
-.page::before {
-  content: '';
-  position: absolute;
-  background-size: cover;
-  background-repeat: repeat-y;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../assets/weird.png");
-  opacity: 0.2;
-}
+
 h1{
   text-align: center;
   font-size: 62px;
@@ -27,7 +18,8 @@ h3{
 }
 .content{
  width: 660px;
- margin: auto
+ margin: auto;
+ display: block;
 }
 .inputs{
   text-align: center;
@@ -107,4 +99,21 @@ i {
 	display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.page {
+  min-height: 100vh;
+  position: relative;
+}
+.page:before {
+  content: '';
+  opacity: .2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-image: url("../../assets/weird.png");
 }
