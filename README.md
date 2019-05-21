@@ -1,4 +1,5 @@
 # AshevilleIpsum
+http://ashevilleipsum.com/
 
 For better sentence generation see https://stackoverflow.com/questions/35674309/programmatically-forming-a-sentence-from-a-list-of-nouns
 I think you also need lists of articles (a, an, the), verbs, adverbs, adjectives and prepositional phrases. The basic sentence structure is [Art adj noun verb adv pp], so for example, A green dog ran slowly down the street. Once you have lists of all those you can randomly pick one word from each list to construct a sentence.
