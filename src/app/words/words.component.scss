@@ -80,9 +80,9 @@ i {
 
 .updown {
 	display: flex;
-    flex-direction: column;
-    max-width: 10px;
-    margin-left: 10px;
+  flex-direction: column;
+  max-width: 10px;
+  margin-left: 10px;
 }
 
 .arrow-up {
@@ -105,11 +105,11 @@ i {
 .page {
   min-height: 100vh;
   position: relative;
+  z-index: 20;
 }
-.page:before {
-  content: '';
+.page-bg {
   opacity: .2;
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   top: 0;

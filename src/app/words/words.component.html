@@ -1,31 +1,32 @@
 <div class="page">
-<h1 class="sunrise">Asheville Ipsum</h1>
-<h2 class="sunrise">Asheville Infused Lorem Ipusm Generator</h2>
+  <h1 class="sunrise">Asheville Ipsum</h1>
+  <h2 class="sunrise">Asheville Infused Lorem Ipusm Generator</h2>
   <h3 class="sunrise">Ditch that boring ipsum for some auto-generated, beer infused,</h3>
   <h3 class="sunrise">funky smelling, hippster weirdness.</h3>
-<div class="inputs">
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="form-group" id="numberOfParagraphs">
+  <div class="inputs">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" id="numberOfParagraphs">
         <label>Number of Paragraphs</label>
         <input type="text" id="number-field" formControlName="numberOfParagraphs" class="form-control" />
         <div class="updown">
           <i class="arrow-up" (click)="incrementParagraphs()"></i>
           <i class="arrow-down" (click)="decrementParagraphs()"></i>
         </div>
-    </div>
-  <div class="form-group" id="short-medium-long">
-    <mat-radio-group aria-label="Select an option" formControlName="numberOfWords" class="form-control" >
-      <mat-radio-button class="radio-button" value="25">Short</mat-radio-button>
-      <mat-radio-button class="radio-button" value="50">Medium</mat-radio-button>
-      <mat-radio-button class="radio-button" value="100">Long</mat-radio-button>
-    </mat-radio-group>
+      </div>
+      <div class="form-group" id="short-medium-long">
+        <mat-radio-group aria-label="Select an option" formControlName="numberOfWords" class="form-control">
+          <mat-radio-button class="radio-button" value="25">Short</mat-radio-button>
+          <mat-radio-button class="radio-button" value="50">Medium</mat-radio-button>
+          <mat-radio-button class="radio-button" value="100">Long</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-checkbox formControlName="moreBeer" class="more-check-box">Extra Beer</mat-checkbox>
+      <mat-checkbox formControlName="moreFunk" class="more-check-box">Extra Funky</mat-checkbox>
+      <div class="form-group">
+        <button class="btn btn-primary" id="submit-button">Generate Weirdness</button>
+      </div>
+    </form>
   </div>
-    <mat-checkbox formControlName="moreBeer" class="more-check-box">Extra Beer</mat-checkbox>
-    <mat-checkbox formControlName="moreFunk" class="more-check-box">Extra Funky</mat-checkbox>
-  <div class="form-group">
-      <button class="btn btn-primary" id="submit-button">Generate Weirdness</button>
-  </div>
-</form>
+  <p class="content" *ngFor="let paragraph of paragraphs">{{ paragraph }}<br><br></p>
 </div>
-
-<div class="content" *ngFor="let paragraph of paragraphs">{{ paragraph }}<br><br></div>
+<div class="page-bg"></div>
