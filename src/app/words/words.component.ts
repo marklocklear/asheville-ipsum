@@ -25,6 +25,8 @@ export class WordsComponent implements OnInit {
     "Develops estery and somewhat peppery spiceyness"
   ];
 
+  extraFunk = ["more funk", "MORE FUNK!!!"];
+
   words = [
     "hops",
     "hippy",
@@ -106,8 +108,26 @@ export class WordsComponent implements OnInit {
     this.paragraphs.length = this.registerForm.value.numberOfParagraphs;
     //loop through array and run getNumberOfWords for each element
     for (var i = 0; i < this.paragraphs.length; i++) {
-      this.paragraphs[i] = this.getNumberOfWords();
+      // this.paragraphs[i] = this.getNumberOfWords();
     }
+    if (this.registerForm.value.moreBeer == true) {
+      this.getMoreBeer(this.paragraphs.length);
+    }
+    if (this.registerForm.value.moreFunk == true) {
+      this.getMoreFunk();
+    }
+  }
+
+  getMoreBeer(numParagraphs) {
+    console.log("made to getMoreBeer", numParagraphs);
+    for (var i = 0; i < numParagraphs.length; i++) {
+      // numberOfParagraphs[i] = this.getNumberOfWords();
+      console.log("in for loop");
+    }
+  }
+
+  getMoreFunk() {
+    console.log("made to getMoreFunk");
   }
 
   getNumberOfWords() {
