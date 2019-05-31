@@ -108,31 +108,25 @@ export class WordsComponent implements OnInit {
     this.paragraphs.length = this.registerForm.value.numberOfParagraphs;
     //loop through array and run getNumberOfWords for each element
     for (var i = 0; i < this.paragraphs.length; i++) {
-      // this.paragraphs[i] = this.getNumberOfWords();
+      this.paragraphs[i] = this.getNumberOfWords();
     }
-    if (this.registerForm.value.moreBeer == true) {
-      this.getMoreBeer(this.paragraphs.length);
-    }
-    if (this.registerForm.value.moreFunk == true) {
-      this.getMoreFunk();
-    }
-  }
-
-  getMoreBeer(numParagraphs) {
-    console.log("made to getMoreBeer", numParagraphs);
-    for (var i = 0; i < numParagraphs.length; i++) {
-      // numberOfParagraphs[i] = this.getNumberOfWords();
-      console.log("in for loop");
-    }
-  }
-
-  getMoreFunk() {
-    console.log("made to getMoreFunk");
   }
 
   getNumberOfWords() {
     let words;
-    const shuffledWords = [...this.words]; //make a copy of the array to prevent mutation
+    let shuffledWords;
+    if (
+      this.registerForm.value.moreBeer == true &&
+      this.registerForm.value.moreFunk == true
+    ) {
+      shuffledWords = [...this.words.concat(this.extraFunk, this.extraBeer)];
+    } else if (this.registerForm.value.moreBeer == true) {
+      shuffledWords = [...this.words.concat(this.extraBeer)]; //make a copy of the array to prevent mutation
+    } else if (this.registerForm.value.moreFunk == true) {
+      shuffledWords = [...this.words.concat(this.extraFunk)];
+    } else {
+      shuffledWords = [...this.words];
+    }
     shuffledWords.sort(() => 0.5 - Math.random());
     this.randomlyInsertPeriods(shuffledWords);
     words = shuffledWords
