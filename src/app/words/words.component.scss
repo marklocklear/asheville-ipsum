@@ -39,8 +39,9 @@ h3{
   margin: 10px 0px 0px 10px;
 }
 .wrapper {
-  width: 80%;
-  margin: 0 auto;
+  position:absolute;
+   top:0;
+   right:0;
 }
 /* number of paragraphs*/
 #number-field {
