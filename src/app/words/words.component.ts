@@ -174,9 +174,20 @@ export class WordsComponent implements OnInit {
   addPeriod(words) {
     return words + ".";
   }
+
   addperiod(words) {
     // add a period to end of words
     return (words = words + ".");
     // console.log("test for add words", words);
+  }
+
+  copyText(item) {
+    //https://stackoverflow.com/questions/49102724/angular-5-copy-to-clipboard
+    document.addEventListener('copy', (e: ClipboardEvent) => {
+      e.clipboardData.setData('text/plain', (item));
+      e.preventDefault();
+      document.removeEventListener('copy', null);
+    });
+    document.execCommand('copy');
   }
 }
